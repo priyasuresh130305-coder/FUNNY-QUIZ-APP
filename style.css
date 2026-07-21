@@ -1,0 +1,121 @@
+/* Fluorescent background */
+body {
+  font-family: 'Trebuchet MS', sans-serif;
+  background: linear-gradient(135deg, #00f7ff, #ff00e1, #39ff14);
+  background-size: 400% 400%;
+  animation: neonBG 10s ease infinite;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+@keyframes neonBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Quiz container */
+.quiz-container {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  width: 400px;
+  box-shadow: 0 0 25px #ff00e1, 0 0 25px #39ff14;
+}
+
+h1 {
+  color: #00f7ff;
+  text-shadow: 0 0 10px #ff00e1, 0 0 20px #39ff14;
+}
+
+input, button {
+  margin: 10px 0;
+  padding: 12px;
+  width: 80%;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+button {
+  background: #ff00e1;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #39ff14;
+  box-shadow: 0 0 20px #00f7ff;
+}
+
+/* Options vertically */
+#options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.option {
+  background: #222;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.option:hover {
+  background: #444;
+  transform: scale(1.05);
+}
+
+.option.correct {
+  background: #39ff14 !important;
+  color: black;
+}
+
+.option.incorrect {
+  background: #ff1744 !important;
+  color: white;
+}
+
+/* Feedback messages */
+#feedback {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+  display: none;
+}
+
+#feedback.correct {
+  color: #39ff14;
+  animation: blastGreen 0.6s ease;
+}
+
+#feedback.incorrect {
+  color: #ff1744;
+  animation: shake 0.6s ease;
+}
+
+@keyframes blastGreen {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.4); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  50% { transform: translateX(8px); }
+  75% { transform: translateX(-8px); }
+}
+
+/* Hidden */
+.hidden { display: none; }
